@@ -95,7 +95,7 @@ class Program
             Console.Write(i.ToString() + " ");
         }
 
-        Console.WriteLine("\n");
+        Console.WriteLine("\t\t\tRemaining flag: " + rFlag + "\n");
 
         for (int y = 0; y < 10; y++)
         {
@@ -107,7 +107,7 @@ class Program
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
                 else Console.BackgroundColor = ConsoleColor.Black;
 
-                if (grid[x, y].isOpen && grid[x,y].isFlag==false)
+                if (grid[x, y].isOpen && grid[x, y].isFlag == false)
                 {
                     if (grid[x, y].isBomb)
                     {
@@ -139,110 +139,110 @@ class Program
 
     public static void etrafiacik(int x, int y)
     {
-         
-            if (x > 0)
+
+        if (x > 0)
+        {
+            if (grid[x - 1, y].nearby == 0 && grid[x - 1, y].isBomb == false && grid[x - 1, y].isOpen == false && grid[x - 1, y].isFlag == false)
             {
-                if (grid[x - 1, y].nearby == 0 && grid[x - 1, y].isBomb == false && grid[x - 1, y].isOpen == false && grid[x-1, y].isFlag == false)
-                {
-                    grid[x - 1, y].isOpen = true;
-                    etrafiacik(x - 1, y);
-                }
-                else
-                {
-                    grid[x - 1, y].isOpen = true;
-                }
-
-                if (y > 0)
-                {
-                    if (grid[x - 1, y - 1].nearby == 0 && grid[x - 1, y - 1].isBomb == false && grid[x - 1, y - 1].isOpen == false && grid[x - 1, y-1].isFlag == false)
-                    {
-                        grid[x - 1, y - 1].isOpen = true;
-                        etrafiacik(x - 1, y - 1);
-                    }
-                    else
-                    {
-                        grid[x - 1, y - 1].isOpen = true;
-                    }
-                }
-
-                if (y < 9)
-                {
-                    if (grid[x - 1, y + 1].nearby == 0 && grid[x - 1, y + 1].isBomb == false && grid[x - 1, y + 1].isOpen == false && grid[x - 1, y+1].isFlag == false)
-                    {
-                        grid[x - 1, y + 1].isOpen = true;
-                        etrafiacik(x - 1, y + 1);
-                    }
-                    else
-                    {
-                        grid[x - 1, y + 1].isOpen = true;
-                    }
-                }
+                grid[x - 1, y].isOpen = true;
+                etrafiacik(x - 1, y);
             }
-
-            if (x < 9)
+            else
             {
-                if (grid[x + 1, y].nearby == 0 && grid[x + 1, y].isBomb == false && grid[x + 1, y].isOpen == false && grid[x + 1, y].isFlag == false)
-                {
-                    grid[x + 1, y].isOpen = true;
-                    etrafiacik(x + 1, y);
-                }
-                else
-                {
-                    grid[x + 1, y].isOpen = true;
-                }
-
-                if (y > 0)
-                {
-                    if (grid[x + 1, y - 1].nearby == 0 && grid[x + 1, y - 1].isBomb == false && grid[x + 1, y - 1].isOpen == false && grid[x + 1, y-1].isFlag == false)
-                    {
-                        grid[x + 1, y - 1].isOpen = true;
-                        etrafiacik(x + 1, y - 1);
-                    }
-                    else
-                    {
-                        grid[x + 1, y - 1].isOpen = true;
-                    }
-                }
-
-                if (y < 9)
-                {
-                    if (grid[x + 1, y + 1].nearby == 0 && grid[x + 1, y + 1].isBomb == false && grid[x + 1, y + 1].isOpen == false && grid[x + 1, y+1].isFlag == false)
-                    {
-                        grid[x + 1, y + 1].isOpen = true;
-                        etrafiacik(x + 1, y + 1);
-                    }
-                    else
-                    {
-                        grid[x + 1, y + 1].isOpen = true;
-                    }
-                }
+                grid[x - 1, y].isOpen = true;
             }
 
             if (y > 0)
             {
-                if (grid[x, y - 1].nearby == 0 && grid[x, y - 1].isBomb == false && grid[x, y - 1].isOpen == false && grid[x, y-1].isFlag == false)
+                if (grid[x - 1, y - 1].nearby == 0 && grid[x - 1, y - 1].isBomb == false && grid[x - 1, y - 1].isOpen == false && grid[x - 1, y - 1].isFlag == false)
                 {
-                    grid[x, y - 1].isOpen = true;
-                    etrafiacik(x, y - 1);
+                    grid[x - 1, y - 1].isOpen = true;
+                    etrafiacik(x - 1, y - 1);
                 }
                 else
                 {
-                    grid[x, y - 1].isOpen = true;
+                    grid[x - 1, y - 1].isOpen = true;
                 }
             }
 
             if (y < 9)
             {
-                if (grid[x, y + 1].nearby == 0 && grid[x, y + 1].isBomb == false && grid[x, y + 1].isOpen == false && grid[x, y+1].isFlag == false)
+                if (grid[x - 1, y + 1].nearby == 0 && grid[x - 1, y + 1].isBomb == false && grid[x - 1, y + 1].isOpen == false && grid[x - 1, y + 1].isFlag == false)
                 {
-                    grid[x, y + 1].isOpen = true;
-                    etrafiacik(x, y + 1);
+                    grid[x - 1, y + 1].isOpen = true;
+                    etrafiacik(x - 1, y + 1);
                 }
                 else
                 {
-                    grid[x, y + 1].isOpen = true;
+                    grid[x - 1, y + 1].isOpen = true;
                 }
             }
+        }
+
+        if (x < 9)
+        {
+            if (grid[x + 1, y].nearby == 0 && grid[x + 1, y].isBomb == false && grid[x + 1, y].isOpen == false && grid[x + 1, y].isFlag == false)
+            {
+                grid[x + 1, y].isOpen = true;
+                etrafiacik(x + 1, y);
+            }
+            else
+            {
+                grid[x + 1, y].isOpen = true;
+            }
+
+            if (y > 0)
+            {
+                if (grid[x + 1, y - 1].nearby == 0 && grid[x + 1, y - 1].isBomb == false && grid[x + 1, y - 1].isOpen == false && grid[x + 1, y - 1].isFlag == false)
+                {
+                    grid[x + 1, y - 1].isOpen = true;
+                    etrafiacik(x + 1, y - 1);
+                }
+                else
+                {
+                    grid[x + 1, y - 1].isOpen = true;
+                }
+            }
+
+            if (y < 9)
+            {
+                if (grid[x + 1, y + 1].nearby == 0 && grid[x + 1, y + 1].isBomb == false && grid[x + 1, y + 1].isOpen == false && grid[x + 1, y + 1].isFlag == false)
+                {
+                    grid[x + 1, y + 1].isOpen = true;
+                    etrafiacik(x + 1, y + 1);
+                }
+                else
+                {
+                    grid[x + 1, y + 1].isOpen = true;
+                }
+            }
+        }
+
+        if (y > 0)
+        {
+            if (grid[x, y - 1].nearby == 0 && grid[x, y - 1].isBomb == false && grid[x, y - 1].isOpen == false && grid[x, y - 1].isFlag == false)
+            {
+                grid[x, y - 1].isOpen = true;
+                etrafiacik(x, y - 1);
+            }
+            else
+            {
+                grid[x, y - 1].isOpen = true;
+            }
+        }
+
+        if (y < 9)
+        {
+            if (grid[x, y + 1].nearby == 0 && grid[x, y + 1].isBomb == false && grid[x, y + 1].isOpen == false && grid[x, y + 1].isFlag == false)
+            {
+                grid[x, y + 1].isOpen = true;
+                etrafiacik(x, y + 1);
+            }
+            else
+            {
+                grid[x, y + 1].isOpen = true;
+            }
+        }
     }
 
     public static void Game()
@@ -315,25 +315,25 @@ class Program
 
             case ConsoleKey.B:
 
-                    if (grid[imlecx, imlecy].isFlag == false && rFlag > 0)
-                    {
-                        grid[imlecx, imlecy].isFlag = true;
-                        grid[imlecx, imlecy].isOpen = true;
-                       
-                        rFlag--;
+                if (grid[imlecx, imlecy].isFlag == false && grid[imlecx, imlecy].isOpen == false && rFlag > 0)
+                {
+                    grid[imlecx, imlecy].isFlag = true;
+                    grid[imlecx, imlecy].isOpen = true;
 
-                        if (grid[imlecx, imlecy].isBomb)
-                            sFlag++;
-                    }
-                    else if (grid[imlecx, imlecy].isFlag)
-                    {
-                        grid[imlecx, imlecy].isFlag = false;
-                        grid[imlecx, imlecy].isOpen = false;
-                        rFlag++;
+                    rFlag--;
 
-                        if (grid[imlecx, imlecy].isBomb)
-                            sFlag--;
-                    }
+                    if (grid[imlecx, imlecy].isBomb)
+                        sFlag++;
+                }
+                else if (grid[imlecx, imlecy].isFlag)
+                {
+                    grid[imlecx, imlecy].isFlag = false;
+                    grid[imlecx, imlecy].isOpen = false;
+                    rFlag++;
+
+                    if (grid[imlecx, imlecy].isBomb)
+                        sFlag--;
+                }
 
                 if (sFlag == nBomb)
                 {
@@ -343,6 +343,9 @@ class Program
                     Game();
                 }
 
+                goto label;
+
+            default:
                 goto label;
         }
 
