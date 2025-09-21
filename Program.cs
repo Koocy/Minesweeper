@@ -95,7 +95,7 @@ class Program
             Console.Write(i.ToString() + " ");
         }
 
-        Console.WriteLine("\t\t\tRemaining flag: " + rFlag + "\n");
+        Console.WriteLine("\t\tRemaining flag: " + rFlag + "\tPress 'B' for flag, Enter for opening square");
 
         for (int y = 0; y < 10; y++)
         {
@@ -254,15 +254,16 @@ class Program
             if (victory) Console.WriteLine("\nCongratulations. You marked all bombs and won!");
             else Console.WriteLine("\nSorry. You lost.");
 
-            Console.WriteLine("type 'r' to restart");
-            string s = Console.ReadLine();
-            if (s == "r")
+            Console.WriteLine("Press 'R' to restart...");
+            ConsoleKeyInfo cki = Console.ReadKey();
+            if (cki.Key == ConsoleKey.R)
             {
                 gameOver = false;
                 victory = false;
                 rFlag = nBomb;
                 sFlag = 0;
                 assignBombs();
+                cki = default(ConsoleKeyInfo);
                 Game();
             }
             else Game();
@@ -382,3 +383,4 @@ class Program
         Console.ReadKey();
     }
 }
+
