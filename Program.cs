@@ -95,7 +95,7 @@ class Program
             Console.Write(i.ToString() + " ");
         }
 
-        Console.WriteLine("\t\tRemaining flag: " + rFlag + "\tPress 'B' for flag, Enter for opening square");
+        Console.WriteLine("\t\tRemaining flag: " + rFlag + "\tPress 'B' for flag, Enter for opening square\n");
 
         for (int y = 0; y < 10; y++)
         {
@@ -383,4 +383,5 @@ class Program
         Console.ReadKey();
     }
 }
+
 
